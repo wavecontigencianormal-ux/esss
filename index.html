@@ -1,1 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cicero Adriano Advocacia</title>
 
+  <!-- Bootstrap 5 + ícones -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- Google Fonts (para um toque mais sofisticado) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon gerado inline (base64) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a2e4a'/%3E%3Cpath d='M30 25 L30 75 L70 75 L70 25 Z' fill='none' stroke='%23c9a84b' stroke-width='6'/%3E%3Cpath d='M40 35 L40 65 L60 65 L60 35 Z' fill='none' stroke='%23c9a84b' stroke-width='5'/%3E%3Ctext x='50' y='78' font-family='Georgia' font-size='28' fill='%23c9a84b' text-anchor='middle' font-weight='bold'%3ECA%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+  <!-- fallback para navegadores antigos (PNG baseado no mesmo design) -->
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABhUlEQVR4nO3cMU4CQRiG4cXeC7AX4ABUAu1stBVbOw3ltjCeQC6AvQchCZSQlKysq4mdxoR1Mwwk8LzJ+0v2K3Z3Zmd2FgDg0pa+AQBAeAgaQcNQMAwFo2AkGAWjYXAYcAYcBcNgKBgFo2IUbA4DzoADwChYDAWjYBgKRr1hMBhGzXAYmDL4CkATjILRMAhGTThoxoHBoMBg8CtwGAymDCZEwTByRtw9cBhmwIw4gwnDUDBOMpgy+CNmDgbDCBgpB4Npce0YBtOiYzCMgoFz0DGYFh2D4XBgHDSsA4NhBPRSGTCYEFl0ACsI7xXGjT0aBvN/URkM5v8U7sx4Nezo0TGaWzFM/wvBhZlskfEgbpQcM2I4jIQBwBCY/msYzIxTMBbqZ+wBsCgLcsYooFZ0tx/jz0x3+ykW5Y6RMQKGy+yxAAIGBEdgIAoORsEoGAUDUBiYDA1GwXAwHISGABiABgDhYQAMQANQBhsABqABKIMNAGMzA0DDaDAMDQMwBg0DUBiAhgEwAA1AGWwAAvRNeAADgzEDQMPoDADYHYzN2MBrDftfCwAAAABJRU5ErkJggg==" />
+
+  <style>
+    /* cores e identidade visual */
+    :root {
+      --azul-escuro: #0f1e33;
+      --dourado: #c9a84b;
+      --cinza-claro: #f4f2ee;
+      --cinza-texto: #4a4a4a;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #ffffff;
+      color: var(--cinza-texto);
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, .font-serif {
+      font-family: 'Merriweather', serif;
+    }
+
+    .bg-azul-escuro {
+      background-color: var(--azul-escuro);
+    }
+    .bg-dourado {
+      background-color: var(--dourado);
+    }
+    .text-dourado {
+      color: var(--dourado);
+    }
+    .text-azul-escuro {
+      color: var(--azul-escuro);
+    }
+    .bg-cinza-claro {
+      background-color: var(--cinza-claro);
+    }
+
+    .btn-dourado {
+      background-color: var(--dourado);
+      color: #fff;
+      border: none;
+      padding: 10px 28px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-dourado:hover {
+      background-color: #b8932e;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(201, 168, 75, 0.35);
+    }
+
+    .btn-outline-dourado {
+      border: 2px solid var(--dourado);
+      color: var(--dourado);
+      background: transparent;
+      font-weight: 600;
+      padding: 8px 24px;
+      transition: 0.3s;
+    }
+    .btn-outline-dourado:hover {
+      background-color: var(--dourado);
+      color: #fff;
+    }
+
+    .navbar-custom {
+      background-color: var(--azul-escuro);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    }
+    .navbar-custom .navbar-brand {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      color: var(--dourado);
+    }
+    .navbar-custom .nav-link {
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      margin: 0 6px;
+      transition: 0.2s;
+    }
+    .navbar-custom .nav-link:hover {
+      color: var(--dourado);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0a1628 0%, #1a2e4a 100%);
+      padding: 80px 0 60px;
+      border-bottom: 6px solid var(--dourado);
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #d4d4d4;
+    }
+    .hero .badge-dourado {
+      background-color: var(--dourado);
+      color: #0a1628;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
+      color: var(--azul-escuro);
+      margin-bottom: 2rem;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--dourado);
+      border-radius: 4px;
+    }
+
+    .card-servico {
+      border: none;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+      transition: 0.3s;
+      padding: 1.8rem 1.2rem;
+      text-align: center;
+      height: 100%;
+    }
+    .card-servico:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.10);
+    }
+    .card-servico i {
+      font-size: 2.8rem;
+      color: var(--dourado);
+      margin-bottom: 1rem;
+    }
+    .card-servico h5 {
+      font-weight: 700;
+      color: var(--azul-escuro);
+    }
+
+    .info-contato i {
+      color: var(--dourado);
+      font-size: 1.4rem;
+      width: 2rem;
+    }
+    .info-contato p {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer {
+      background-color: #0b1625;
+      color: #b0b9c9;
+      font-size: 0.95rem;
+      border-top: 4px solid var(--dourado);
+    }
+    .footer a {
+      color: var(--dourado);
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .dados-cnpj {
+      background-color: #eae7e0;
+      border-radius: 16px;
+      padding: 1.2rem 2rem;
+      font-size: 0.95rem;
+      border-left: 6px solid var(--dourado);
+    }
+
+    .imagem-destaque {
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      max-width: 100%;
+      height: auto;
+      transition: 0.3s;
+    }
+    .imagem-destaque:hover {
+      transform: scale(1.02);
+    }
+
+    /* responsivo */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-custom py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="#">
+        <i class="bi bi-scale me-2"></i>Cicero Adriano
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / INÍCIO -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <span class="badge-dourado mb-3"><i class="bi bi-building me-1"></i> Sociedade Individual de Advocacia</span>
+          <h1 class="display-4 fw-bold mt-3">Cicero Adriano Advocacia</h1>
+          <p class="lead mb-4">Excelência jurídica com compromisso e transparência. Atuamos com dedicação em cada causa.</p>
+          <a href="#contato" class="btn btn-dourado btn-lg rounded-pill px-5"><i class="bi bi-whatsapp me-2"></i>Fale conosco</a>
+        </div>
+        <div class="col-lg-5 text-center">
+          <!-- Imagem ilustrativa (advocacia / balança) -->
+          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&auto=format&fit=crop&q=80" 
+               alt="Escritório de Advocacia" class="imagem-destaque rounded-4 shadow-lg" 
+               style="max-height: 320px; width: auto; object-fit: cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="py-5 bg-cinza-claro">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="text-dourado fw-semibold">Nossa atuação</span>
+        <h2 class="section-title">Áreas do Direito</h2>
+        <p class="text-muted mt-3">Soluções jurídicas personalizadas para cada cliente.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-servico">
+            <i class="bi bi-briefcase"></i>
+            <h5>Direito Civil</h5>
+            <p class="text-muted small">Contratos, indenizações, responsabilidade civil e mais.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-servico">
+            <i class="bi bi-building"></i>
+            <h5>Direito Empresarial</h5>
+            <p class="text-muted small">Consultoria para empresas, contratos comerciais e societário.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-servico">
+            <i class="bi bi-people"></i>
+            <h5>Direito de Família</h5>
+            <p class="text-muted small">Divórcio, guarda, alimentos, inventário e partilha.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-servico">
+            <i class="bi bi-file-earmark-text"></i>
+            <h5>Direito Trabalhista</h5>
+            <p class="text-muted small">Reclamações trabalhistas, acordos e defesa do empregador.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-servico">
+            <i class="bi bi-shield-check"></i>
+            <h5>Direito Previdenciário</h5>
+            <p class="text-muted small">Aposentadoria, benefícios, revisões e auxílios.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-servico">
+            <i class="bi bi-arrow-left-right"></i>
+            <h5>Mediação e Arbitragem</h5>
+            <p class="text-muted small">Resolução extrajudicial de conflitos com agilidade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE / DADOS DA EMPRESA -->
+  <section id="sobre" class="py-5">
+    <div class="container py-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="text-dourado fw-semibold">Quem somos</span>
+          <h2 class="section-title">Cicero Adriano Sociedade Individual de Advocacia</h2>
+          <p class="mt-3">Fundada em <strong>10 de julho de 2019</strong>, nossa sociedade atua com ética, transparência e compromisso com a justiça. Sob a condução do Dr. Cicero Adriano, oferecemos soluções jurídicas de excelência.</p>
+          
+          <div class="dados-cnpj mt-4">
+            <div class="row">
+              <div class="col-6">
+                <i class="bi bi-qr-code text-dourado me-1"></i> <strong>CNPJ:</strong> 34.361.463/0001-09
+              </div>
+              <div class="col-6">
+                <i class="bi bi-calendar-event text-dourado me-1"></i> <strong>Situação:</strong> Ativa
+              </div>
+              <div class="col-12 mt-2">
+                <i class="bi bi-geo-alt text-dourado me-1"></i> 
+                Rua Juvenal Mendonca, 343 – Centro, Empresarial Sebastião Jeronimo<br />
+                União dos Palmares – AL, 14407-411
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 d-flex flex-wrap gap-3">
+            <span class="badge bg-azul-escuro text-light p-2 px-3"><i class="bi bi-check-circle-fill text-dourado me-1"></i> OAB/AL</span>
+            <span class="badge bg-azul-escuro text-light p-2 px-3"><i class="bi bi-clock-fill text-dourado me-1"></i> Atendimento 08h–18h</span>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=600&auto=format&fit=crop&q=80" 
+               alt="Imagem institucional" class="imagem-destaque rounded-4 shadow" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO / LOCALIZAÇÃO -->
+  <section id="contato" class="py-5 bg-azul-escuro text-white">
+    <div class="container py-4">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <span class="text-dourado fw-semibold"><i class="bi bi-telephone-fill me-1"></i> Contato</span>
+          <h2 class="display-6 fw-bold mt-2" style="color: #fff;">Fale com a nossa equipe</h2>
+          <p class="text-light opacity-75">Estamos prontos para atender você. Entre em contato por telefone, WhatsApp ou redes sociais.</p>
+
+          <div class="info-contato mt-4">
+            <p><i class="bi bi-whatsapp"></i> <strong>(82) 99921-8011</strong></p>
+            <p><i class="bi bi-telephone"></i> (82) 99921-8011</p>
+            <p><i class="bi bi-envelope"></i> contato@ciceroadriano.adv.br</p>
+            <p><i class="bi bi-geo-alt"></i> Rua Juvenal Mendonca, 343, Centro<br />União dos Palmares – AL, 14407-411</p>
+          </div>
+
+          <div class="mt-4">
+            <a href="#" class="btn btn-dourado rounded-pill px-5 me-2"><i class="bi bi-whatsapp me-2"></i>WhatsApp</a>
+            <a href="#" class="btn btn-outline-dourado rounded-pill px-4"><i class="bi bi-instagram me-2"></i>Instagram</a>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <!-- Mapa / Localização (imagem estática com marcação) -->
+          <div class="bg-dark rounded-4 p-3 h-100 d-flex align-items-center justify-content-center" style="min-height: 280px;">
+            <div class="text-center text-light">
+              <i class="bi bi-geo-alt-fill text-dourado fs-1"></i>
+              <p class="mt-2 fw-semibold">União dos Palmares – AL</p>
+              <p class="small opacity-75">Rua Juvenal Mendonca, 343 – Centro<br />Empresarial Sebastião Jeronimo</p>
+              <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <span class="badge bg-light text-dark px-3 py-2"><i class="bi bi-pin-map text-dourado"></i> Ver no Google Maps</span>
+              </div>
+              <!-- imagem simulando mapa -->
+              <img src="https://maps.googleapis.com/maps/api/staticmap?center=Uni%C3%A3o+dos+Palmares,+AL&zoom=14&size=500x200&markers=color:gold%7C-9.1613,-36.0244&key=AIzaSyAYJH0pG9Fy7V6pcCcvjXy8XeSO8A4q8ls" 
+                   alt="Mapa localização" class="img-fluid rounded-3 mt-2" style="max-height: 140px; width: 100%; object-fit: cover;" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ com dados complementares -->
+  <footer class="footer py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">
+            <i class="bi bi-scale me-2 text-dourado"></i>
+            <strong>Cicero Adriano Advocacia</strong> – Sociedade Individual de Advocacia
+          </p>
+          <small class="opacity-75">CNPJ 34.361.463/0001-09 | Situação Cadastral: 10/07/2019</small>
+        </div>
+        <div class="col-md-6 text-md-end mt-2 mt-md-0">
+          <span class="text-dourado">© 2026</span> – Todos os direitos reservados.
+          <span class="d-block d-sm-inline opacity-75 ms-2">
+            <i class="bi bi-envelope-fill"></i> contato@ciceroadriano.adv.br
+          </span>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12 text-center small opacity-50">
+          Rua Juvenal Mendonca, 343 – Centro, Empresarial Sebastião Jeronimo – União dos Palmares/AL
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
